@@ -28,7 +28,7 @@ function App() {
       localStorage.getItem(LOCAL_STORAGE_KEY, JSON.stringify(contacts))
     );
     if (retrieveContacts) setContacts(retrieveContacts);
-  }, []);
+  }, [contacts]);
 
   useEffect(() => {
     localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(contacts));
