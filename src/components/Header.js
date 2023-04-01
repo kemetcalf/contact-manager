@@ -1,13 +1,16 @@
 import React from "react";
+import { Container, Header } from "semantic-ui-react";
 
-const Header = () => {
-  return (
-    <div className="ui fixed menu">
-      <div className="ui container center">
-        <h2>Contact Manager</h2>
-      </div>
-    </div>
-  );
+const HeaderSection = () => {
+	return (
+		<div>
+			<Container textAlign="center">
+				<Header as="h1" dividing style={{ margin: "25px" }}>
+					Contact Manager
+				</Header>
+			</Container>
+		</div>
+	);
 };
 
-export default Header;
+export default HeaderSection;
