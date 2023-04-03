@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import ContactCard from "./ContactCard";
-import { Container, Button, Grid } from "semantic-ui-react";
+import { Container, Button, Header } from "semantic-ui-react";
 
 const ContactList = (props) => {
 	const deleteContactHandler = (id) => {
@@ -20,18 +20,12 @@ const ContactList = (props) => {
 
 	return (
 		<div>
-			<Grid columns={2} divided>
-				<Grid.Row>
-					<Grid.Column>
-						<h2>Contact list</h2>
-					</Grid.Column>
-					<Grid.Column>
-						<Link to="/add">
-							<Button color="blue" floated="right" content="Add Contact" />
-						</Link>
-					</Grid.Column>
-				</Grid.Row>
-			</Grid>
+			<Header as="h2">
+				Contact list
+				<Link to="/add">
+					<Button color="blue" floated="right" content="Add Contact" />
+				</Link>
+			</Header>
 
 			<Container className="ui celled list">{renderContactList}</Container>
 		</div>
