@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { Image } from "semantic-ui-react";
+import { Image, Icon, Container } from "semantic-ui-react";
 import user from "../images/user.png";
 
 const ContactCard = (props) => {
@@ -16,11 +16,13 @@ const ContactCard = (props) => {
 					<div>{email}</div>
 				</Link>
 			</div>
-			<i
-				className="trash alternate outline icon"
-				style={{ color: "red", marginTop: "7px", alignSelf: "end" }}
-				onClick={() => props.clickHandler(id)}
-			></i>
+			<Container textAlign="right">
+				<Icon
+					name="trash alternate outline"
+					color="red"
+					onClick={() => props.clickHandler(id)}
+				/>
+			</Container>
 		</div>
 	);
 };
