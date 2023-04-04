@@ -17,11 +17,15 @@ const ContactCard = (props) => {
 				</Link>
 			</div>
 			<Container textAlign="right">
-				<Icon
-					name="trash alternate outline"
-					color="red"
-					onClick={() => props.clickHandler(id)}
-				/>
+				<Link
+					to={{ pathname: `/delete/${id}`, state: { contact: props.contact } }}
+				>
+					<Icon
+						name="trash alternate outline"
+						color="red"
+						// onClick={() => props.clickHandler(id)}
+					/>
+				</Link>
 			</Container>
 		</div>
 	);

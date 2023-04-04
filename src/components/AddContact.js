@@ -1,4 +1,6 @@
 import React from "react";
+import { Link } from "react-router-dom";
+import { Button, Icon } from "semantic-ui-react";
 
 class AddContact extends React.Component {
 	state = {
@@ -43,9 +45,14 @@ class AddContact extends React.Component {
 							onChange={(e) => this.setState({ email: e.target.value })}
 						/>
 					</div>
-					<button className="ui button blue" type="submit">
+					<Link to="/">
+						<Button color="blue" icon>
+							<Icon name="arrow alternate circle left outline" size="" />
+						</Button>
+					</Link>
+					<Button color="blue" type="submit">
 						Add
-					</button>
+					</Button>
 				</form>
 			</div>
 		);

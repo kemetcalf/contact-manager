@@ -6,6 +6,7 @@ import HeaderSection from "./Header";
 import AddContact from "./AddContact";
 import ContactList from "./ContactList";
 import ContactDetail from "./ContactDetail";
+import ConfirmDelete from "./ConfirmDelete";
 
 function App() {
 	const LOCAL_STORAGE_KEY = "contacts";
@@ -43,14 +44,9 @@ function App() {
 					<Route
 						path="/"
 						exact
-						render={(props) => (
-							<ContactList
-								{...props}
-								contacts={contacts}
-								getContactId={removeContactHandler}
-							/>
-						)}
+						render={(props) => <ContactList {...props} contacts={contacts} />}
 					/>
+
 					<Route
 						path="/add"
 						render={(props) => (
@@ -58,6 +54,14 @@ function App() {
 						)}
 					/>
 					<Route path="/contact/:id" component={ContactDetail} />
+
+					{/* Need to figure out passing removeContactHandler to ConfirmDelete so that you can click on the trashcan from the ContactList/Card and have it take you to the ConfirmDelete view. Then you should be able to click the trashcan and actually delete the contact */}
+					<Route
+						path="/delete/:id"
+						render={(props) => (
+							<ConfirmDelete {...props} getContactId={removeContactHandler} />
+						)}
+					/>
 				</Switch>
 			</Router>
 		</div>
