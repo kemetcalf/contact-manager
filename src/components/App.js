@@ -1,40 +1,16 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import { uuid } from "uuidv4";
+
 import "./App.css";
 import HeaderSection from "./Header";
 import AddContact from "./AddContact";
 import ContactList from "./ContactList";
 import ContactDetail from "./ContactDetail";
 import ConfirmDelete from "./ConfirmDelete";
+import useContacts from "../hooks/useContacts";
 
 function App() {
-	const LOCAL_STORAGE_KEY = "contacts";
-	const [contacts, setContacts] = useState([]);
-
-	const addContactHandler = (contact) => {
-		console.log(contact);
-		setContacts([...contacts, { id: uuid(), ...contact }]);
-	};
-
-	const removeContactHandler = (id) => {
-		const newContactList = contacts.filter((contact) => {
-			return contact.id !== id;
-		});
-
-		setContacts(newContactList);
-	};
-
-	useEffect(() => {
-		const retrieveContacts = JSON.parse(
-			localStorage.getItem(LOCAL_STORAGE_KEY)
-		);
-		if (retrieveContacts) setContacts(retrieveContacts);
-	}, []);
-
-	useEffect(() => {
-		localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(contacts));
-	}, [contacts]);
+	const { contacts, addContactHandler, removeContactHandler } = useContacts();
 
 	return (
 		<div className="ui container">
