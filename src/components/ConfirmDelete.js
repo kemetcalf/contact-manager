@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import user from "../images/user.png";
 
 const ConfirmDelete = (props) => {
-	const { id, name, email } = props.location.state.contact;
+	const { id, name } = props.location.state.contact;
 
 	console.log(props.location.state.contact);
 
