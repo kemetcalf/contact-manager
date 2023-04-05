@@ -47,7 +47,7 @@ class AddContact extends React.Component {
 					</div>
 					<Link to="/">
 						<Button color="blue" icon>
-							<Icon name="arrow alternate circle left outline" size="" />
+							<Icon name="arrow alternate circle left outline" />
 						</Button>
 					</Link>
 					<Button color="blue" type="submit">
